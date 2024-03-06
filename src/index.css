@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, .light-theme {
+  --background-color: #111315;
+  --card-background: #1B1D1F;
+  --text-color: #fef7ee;
+  --text-color-secondary: #6F757C;
+  --text-color-sold-out: #ED735D;
+  --price-card-background: #BEE3CC;
+  --star-color: #F6C768;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red;  */
+}
+
+body {
+  background: url(./assets/bg-cafe.jpg) no-repeat top center;
+  background-size: contain;
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0 auto;
+  width: 1200px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    width: 90%;
+    background-size: 1000px auto;
+    background-position-x: 0px;
+  }
+  
+}
