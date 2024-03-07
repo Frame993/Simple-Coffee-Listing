@@ -18,24 +18,6 @@ export default function App() {
     }
   };
 
-  // const buttons = document.querySelectorAll(".button");
-
-  // const handleAvailable = () => {
-  //   for (let i = 0; i < buttons.length; i++) {
-  //     buttons[0].classList.remove("active");
-  //     buttons[1].classList.add("active");
-  //   }
-  //   filterAvailable();
-  // };
-
-  // const handleProduct = () => {
-  //   for (let i = 0; i < buttons.length; i++) {
-  //     buttons[0].classList.add("active");
-  //     buttons[1].classList.remove("active");
-  //   }
-  //   getCoffeeListing();
-  // };
-
   return (
     <div className="flex flex-col md:py-12 bg-card-background my-20 md:my-40 rounded-xl">
       <div className=" w-[90%] md:w-[45%] text-xl flex flex-col mx-auto mt-16 mb-20 text-center gap-8">
