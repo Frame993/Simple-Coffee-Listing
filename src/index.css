@@ -31,6 +31,15 @@ body {
   width: 1200px;
 }
 
+/* hover:bg-text-color-secondary */
+.button:hover {
+  background-color: var(--text-color-secondary);
+}
+.active {
+  background-color: var(--text-color-secondary);
+}
+
+
 @media screen and (max-width: 600px) {
   body {
     width: 90%;

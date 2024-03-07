@@ -3,19 +3,28 @@ import useCoffee from "./hooks/useCoffee";
 import Button from "./components/Button";
 import { coffeeToCoffeeCard } from "./mappers/coffeeToCoffeeCard";
 
-
 export default function App() {
-
   const { coffee, filterAvailable, getCoffeeListing } = useCoffee();
- 
+
+  const buttons = document.querySelectorAll(".button");
+
+  console.log(buttons);
+
   const handleAvailable = () => {
-    filterAvailable();   
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[0].classList.remove("active");
+      buttons[1].classList.add("active");
+    }
+    filterAvailable();
   };
 
-  const handleAllProducts = () => {
+  const handleProduct = () => {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[0].classList.add("active");
+      buttons[1].classList.remove("active");
+    }
     getCoffeeListing();
   };
-
 
   return (
     <div className="flex flex-col md:py-12 bg-card-background my-20 md:my-40 rounded-xl">
@@ -27,14 +36,14 @@ export default function App() {
           and shipped fresh weekly.
         </p>
         <div className="flex justify-center gap-4 md:gap-4">
-          <Button name="All Products" handleclick={handleAllProducts} />
+          <Button name="All Products" handleclick={handleProduct} />
           <Button name="Available Now" handleclick={handleAvailable} />
         </div>
       </div>
 
       <div className="w-[90%] md:w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:px-24 mx-auto bg-card-background">
         {coffee.map((item) => (
-          <Card key={item.id} {...coffeeToCoffeeCard(item)}/>
+          <Card key={item.id} {...coffeeToCoffeeCard(item)} />
         ))}
       </div>
     </div>
