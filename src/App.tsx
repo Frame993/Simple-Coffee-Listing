@@ -2,29 +2,39 @@ import Card from "./components/Card";
 import useCoffee from "./hooks/useCoffee";
 import Button from "./components/Button";
 import { coffeeToCoffeeCard } from "./mappers/coffeeToCoffeeCard";
+import { useState } from "react";
 
 export default function App() {
   const { coffee, filterAvailable, getCoffeeListing } = useCoffee();
+  const [tabActive, setTabActive] = useState(0);
 
-  const buttons = document.querySelectorAll(".button");
+  const handleChangeTab = (index: number) => {
+    setTabActive(index);
 
-  console.log(buttons);
-
-  const handleAvailable = () => {
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[0].classList.remove("active");
-      buttons[1].classList.add("active");
+    if (index === 0) {
+      getCoffeeListing();
+    } else {
+      filterAvailable();
     }
-    filterAvailable();
   };
 
-  const handleProduct = () => {
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[0].classList.add("active");
-      buttons[1].classList.remove("active");
-    }
-    getCoffeeListing();
-  };
+  // const buttons = document.querySelectorAll(".button");
+
+  // const handleAvailable = () => {
+  //   for (let i = 0; i < buttons.length; i++) {
+  //     buttons[0].classList.remove("active");
+  //     buttons[1].classList.add("active");
+  //   }
+  //   filterAvailable();
+  // };
+
+  // const handleProduct = () => {
+  //   for (let i = 0; i < buttons.length; i++) {
+  //     buttons[0].classList.add("active");
+  //     buttons[1].classList.remove("active");
+  //   }
+  //   getCoffeeListing();
+  // };
 
   return (
     <div className="flex flex-col md:py-12 bg-card-background my-20 md:my-40 rounded-xl">
@@ -36,8 +46,16 @@ export default function App() {
           and shipped fresh weekly.
         </p>
         <div className="flex justify-center gap-4 md:gap-4">
-          <Button name="All Products" handleclick={handleProduct} />
-          <Button name="Available Now" handleclick={handleAvailable} />
+          <Button
+            name="All Products"
+            handleclick={() => handleChangeTab(0)}
+            isAcitve={tabActive == 0}
+          />
+          <Button
+            name="Available Now"
+            handleclick={() => handleChangeTab(1)}
+            isAcitve={tabActive == 1}
+          />
         </div>
       </div>
 
