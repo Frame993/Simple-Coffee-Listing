@@ -1,13 +1,9 @@
 {
-  "homepage": "https://frame993.github.io/Simple-Coffee-Listing/",
   "name": "02-simple-coffee-listing",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite serve",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
