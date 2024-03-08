@@ -45,20 +45,21 @@ export default function Card({
         </div>
         <div className="rating-available flex justify-between items-center">
           <div className="rating flex items-center gap-2 ">
-            {!rating && (
+            {!rating ? (
               <img
                 src={starEmpty}
                 alt="icon-star"
                 className="w-[24px] h-[24px]"
               />
-            )}
-            {rating && (
+            ) : (
               <img src={star} alt="icon-star" className="w-[24px] h-[24px]" />
             )}
             {rating && <span className="text-lg">{rating}</span>}
-            {votes && (
-              <span className="text-text-color-secondary text-lg">
-                ({votes} votes)
+            {votes > 0 ? (
+              <span className="text-text-color-secondary">{`(${votes} votes)`}</span>
+            ) : (
+              <span className="text-text-color-secondary">
+                {`(This item has ${votes} votes)`}
               </span>
             )}
           </div>
