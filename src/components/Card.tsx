@@ -1,4 +1,5 @@
 import star from "../assets/Star_fill.svg";
+import starEmpty from "../assets/Star.svg";
 
 export interface CardProps {
   name: string;
@@ -44,7 +45,16 @@ export default function Card({
         </div>
         <div className="rating-available flex justify-between items-center">
           <div className="rating flex items-center gap-2 ">
-            <img src={star} alt="icon-star" className="w-[24px] h-[24px]" />
+            {!rating && (
+              <img
+                src={starEmpty}
+                alt="icon-star"
+                className="w-[24px] h-[24px]"
+              />
+            )}
+            {rating && (
+              <img src={star} alt="icon-star" className="w-[24px] h-[24px]" />
+            )}
             {rating && <span className="text-lg">{rating}</span>}
             {votes && (
               <span className="text-text-color-secondary text-lg">
